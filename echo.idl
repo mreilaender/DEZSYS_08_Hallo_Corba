@@ -1,0 +1,7 @@
+module Hello
+{
+  interface Echo
+  {
+    string echoString(in String msg);
+  };
+};
