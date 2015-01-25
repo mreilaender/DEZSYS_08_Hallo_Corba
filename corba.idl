@@ -1,0 +1,7 @@
+module java
+{
+  interface HelloCorba
+  {
+    string sayHello();
+  };
+};
