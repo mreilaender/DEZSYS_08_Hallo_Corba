@@ -1,4 +1,4 @@
-module java
+module Hello
 {
   interface HelloCorba
   {
