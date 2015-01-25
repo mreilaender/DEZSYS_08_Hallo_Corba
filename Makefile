@@ -10,7 +10,7 @@ cleanall:
 # | (__  |_|   |_|   
 #  \___|             
 
-cpporb: corba.idl
+cpporb: echo.idl
 	omniidl -bcxx echo.idl
 	mkdir -p cpp
 	mv echoSK.cc echo.hh cpp/
@@ -25,7 +25,7 @@ build: # TODO
 #| || |/ _ \  \ V /  / _ \   
 # \__//_/ \_\  \_/  /_/ \_\ 
 
-javaorb: corba.idl
+javaorb: echo.idl
 	idlj -fall echo.idl
 	mkdir -p java
 	mv Hello/* java/Hello/
