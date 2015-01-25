@@ -25,7 +25,9 @@ readme:
 cpporb: echo.idl check $(go) = 1
 	omniidl -bcxx echo.idl
 	mkdir -p cpp
-	cp $(OMNI_PATH)/src/examples/echo/eg3_impl.cc cpp/
+	cp $(OMNI_PATH)/src/examples/echo/eg3_impl.cc cpp/echoCor
+	cp $(OMNI_PATH)/src/examples/echo/dir.mk cpp/echoCor
+	cp $(OMNI_PATH)/src/examples/echo/GNUmakefile cpp/echoCor
 	mv echoSK.cc echo.hh cpp/
 
 build: # TODO
