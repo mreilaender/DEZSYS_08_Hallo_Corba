@@ -1,7 +1,19 @@
-cleanall:
-	rm -rf cpp/*
-	rm -rf java/*
+# Adjust this path to your omniorb library
+OMNI_PATH = $(HOME)/bin/omniORB-4.2.0
 
+#go = 0
+
+all: cpporb javaorb
+
+cleanall: cleancpp cleanjava
+
+#check:
+#	if [ -d $(OMNI_PATH) ]; then $(go)=1; fi
+
+
+readme:
+	vim README
+	
 #   (                
 #   )\               
 # (((_)   _     _    
@@ -10,12 +22,16 @@ cleanall:
 # | (__  |_|   |_|   
 #  \___|             
 
-cpporb: echo.idl
+cpporb: echo.idl check $(go) = 1
 	omniidl -bcxx echo.idl
 	mkdir -p cpp
+	cp $(OMNI_PATH)/src/examples/echo/eg3_impl.cc cpp/
 	mv echoSK.cc echo.hh cpp/
 
 build: # TODO
+
+cleancpp:
+	rm -rf cpp/echoCor/echoSK.cc cpp/echoCor/echo.hh
                             
 #       (             (      
 #   (   )\    (   (   )\     
@@ -28,5 +44,9 @@ build: # TODO
 javaorb: echo.idl
 	idlj -fall echo.idl
 	mkdir -p java
-	mv Hello/* java/Hello/
-	rmdir Hello
+	mkdir -p java/echoCor
+	mv echoCor/* java/echoCor/
+	rmdir echoCor
+
+cleanjava: readme
+	rm -rf java/echoCor
