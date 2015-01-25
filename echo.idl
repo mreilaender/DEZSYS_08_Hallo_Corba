@@ -1,7 +1,7 @@
-module Hello
+module echoCor
 {
   interface Echo
   {
-    string echoString(in String msg);
+    string echoString(in string msg);
   };
 };
