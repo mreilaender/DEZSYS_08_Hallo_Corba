@@ -1,7 +1,0 @@
-module Hello
-{
-  interface HelloCorba
-  {
-    string sayHello();
-  };
-};
