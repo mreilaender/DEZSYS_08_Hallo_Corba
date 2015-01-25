@@ -9,12 +9,17 @@ import org.omg.CORBA.ORBPackage.InvalidName;
 import echoCor.Echo;
 import echoCor.EchoHelper;
 
+import java.util.Properties;
+
 public class EchoClient {
 
 	public static void main(String[] args) {
 		String ns = "NameService";
 		org.omg.CORBA.Object ref;
 		Echo hello;
+		Properties asd = new Properties();
+		asd.put("org.omg.CORBA.ORBInitialPort", "2809");
+		asd.put("org.omg.CORBA.ORBInitialHost", "localhost");
 		ORB orb = ORB.init(args, null);
 		try {
 			ref = orb.resolve_initial_references(ns);
@@ -32,6 +37,7 @@ public class EchoClient {
 			System.out.println("CPP-Corba returned: " + returnText);
 		} catch (InvalidName e) {
 			System.err.println("Couldn't find naming Service: " + ns + ", because " + e.getMessage());
+			e.printStackTrace();
 		} catch (NotFound e) {
 			System.err.println("Couldn't find Object-Ref(" + e.getMessage() + ")");
 			e.printStackTrace();
