@@ -1,10 +1,13 @@
-package echoCor;
+package client;
 
 import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.CannotProceed;
 import org.omg.CosNaming.NamingContextPackage.NotFound;
 import org.omg.CORBA.*;
 import org.omg.CORBA.ORBPackage.InvalidName;
+
+import echoCor.Echo;
+import echoCor.EchoHelper;
 
 public class EchoClient {
 
