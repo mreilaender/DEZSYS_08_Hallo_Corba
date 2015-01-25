@@ -1,5 +1,5 @@
 javaorb: corba.idl
-	idlj -fall -td java/ corba.idl
+	idlj -fall corba.idl
 
 classes:
 	javac java/*
