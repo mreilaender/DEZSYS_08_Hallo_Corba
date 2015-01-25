@@ -11,9 +11,9 @@ cleanall:
 #  \___|             
 
 cpporb: corba.idl
-	omniidl -bcxx corba.idl
+	omniidl -bcxx echo.idl
 	mkdir -p cpp
-	mv corbaSK.cc corba.hh cpp/
+	mv echoSK.cc echo.hh cpp/
 
 build: # TODO
                             
@@ -26,7 +26,7 @@ build: # TODO
 # \__//_/ \_\  \_/  /_/ \_\ 
 
 javaorb: corba.idl
-	idlj -fall corba.idl
+	idlj -fall echo.idl
 	mkdir -p java
-	mv Hello/* java/
+	mv Hello/* java/Hello/
 	rmdir Hello
