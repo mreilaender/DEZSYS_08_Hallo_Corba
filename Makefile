@@ -15,6 +15,7 @@ cpporb: corba.idl
 	mkdir -p cpp
 	mv corbaSK.cc corba.hh cpp/
 
+build: # TODO
                             
 #       (             (      
 #   (   )\    (   (   )\     
