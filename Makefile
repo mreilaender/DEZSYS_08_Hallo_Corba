@@ -5,15 +5,14 @@ OMNI_PATH = $(HOME)/bin/omniORB-4.2.0
 
 all: cpporb javaorb
 
+run: runcpp runjava
+	
+
 cleanall: cleancpp cleanjava
 
 #check:
 #	if [ -d $(OMNI_PATH) ]; then $(go)=1; fi
 
-
-readme:
-	vim README
-	
 #   (                
 #   )\               
 # (((_)   _     _    
@@ -22,18 +21,21 @@ readme:
 # | (__  |_|   |_|   
 #  \___|             
 
-cpporb: echo.idl check $(go) = 1
+cpporb: echo.idl
 	omniidl -bcxx echo.idl
 	mkdir -p cpp
-	cp $(OMNI_PATH)/src/examples/echo/eg3_impl.cc cpp/echoCor
-	cp $(OMNI_PATH)/src/examples/echo/dir.mk cpp/echoCor
-	cp $(OMNI_PATH)/src/examples/echo/GNUmakefile cpp/echoCor
+	cp $(OMNI_PATH)/src/examples/echo/eg3_impl.cc cpp/
+	#cp $(OMNI_PATH)/src/examples/echo/dir.mk cpp/
+	#cp $(OMNI_PATH)/src/examples/echo/GNUmakefile cpp/
 	mv echoSK.cc echo.hh cpp/
 
 build: # TODO
 
+runcpp:
+	./cpp/eg3_impl
+
 cleancpp:
-	rm -rf cpp/echoCor/echoSK.cc cpp/echoCor/echo.hh
+	rm -rf cpp/echoSK.cc cpp/echo.hh
                             
 #       (             (      
 #   (   )\    (   (   )\     
@@ -50,5 +52,12 @@ javaorb: echo.idl
 	mv echoCor/* java/echoCor/
 	rmdir echoCor
 
-cleanjava: readme
+cleanjava:
 	rm -rf java/echoCor
+
+runjava: javaorb java/client/EchoClient.java
+	javac java/echoCor/*.java
+	javac java/client/EchoClient.java
+	#cd java
+	#jaco client.EchoClient doesn't work dont know why
+	
