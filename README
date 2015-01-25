@@ -6,3 +6,12 @@ Remember that all files in cpp/echoCor will be DELETED.
 
 # Before you use make cleanjava #
 Remember that all file in java/echoCor will be DELETED.
+
+
+
+## TROUBLESHOOTING ##
+
+First of all you have to set the path to your omniORB Library by hand,
+which you can find in the makefile.
+
+To be continued ...
