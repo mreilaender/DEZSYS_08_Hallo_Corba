@@ -1,0 +1,8 @@
+### ATTENTION ###
+
+# Before you use make cleanall #
+  
+Remember that all files in cpp/echoCor will be DELETED.
+
+# Before you use make cleanjava #
+Remember that all file in java/echoCor will be DELETED.
